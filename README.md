@@ -64,20 +64,20 @@ Don't forget to make your deamon bin file executible with `chmod a+x`.
 
 FAQ
 ---
-**Q: My init script isn't working, what's wrong?**
+**Q: My init script isn't working, what's wrong?**  
 **A:** This has only been tested on RHEL5, CentOS and Fedora. Most often cause for this is that the PHP command line binary is not in the current search path. The init scripts use a different environment and it has been observed under CentOS 5 that the `/usr/local/bin` path is not in the search path by default. The bin script for our daemons use `/usr/bin/env` to try and find the PHP binary so we don't have to hardcode a path. An easy solution is to simply create a symlink in `/usr/bin`. If using Ubuntu it could be because your daemon name is too long.
 
-**Q: My Daemon logs too much, how do I fix it?**
+**Q: My Daemon logs too much, how do I fix it?**  
 **A:** Edit the ini file for your daemon and set the loglevel option to `6` or lower. `7` is the *debug* log level and the daemon may log a lot more depending on its implementation. You can also specify a `--loglevel` argument on the command line.
 
-**Q: I'm debugging a new daemon. What's an easy way to start and stop it?**
+**Q: I'm debugging a new daemon. What's an easy way to start and stop it?**  
 **A:** Use the `-n` (`--no-daemon`) command line argument when starting your daemon. This keeps the parent process in the foreground and then you can just press `CTRL + c` to stop it. All log messages other than DEBUG level ones will also be emitted to the console when run in the foreground.
 
-**Q: Make the daemon start on boot?**
+**Q: Make the daemon start on boot?**  
 **A:** For Ubuntu, try: `sudo update-rc.d mydaemon defaults`
 For Fedora/RHEL/CentOS: `sudo /sbin/chkconfig --level 35 mydaemon on`
 
-**Q: I am tired of making it start on boot!**
+**Q: I am tired of making it start on boot!**  
 **A:** For Ubuntu, try: `sudo update-rc.d mydaemon remove`
 For Fedora/RHEL/CentOS: `sudo /sbin/chkconfig --del mydaemon`
 
@@ -87,7 +87,7 @@ Authors
 
 Contributors
 ------------
-[Lindsey Smith](https://github.com/praxxis)
+[Lindsey Smith](https://github.com/praxxis)  
 [Wei Feng](https://github.com/windix)
 
 License
